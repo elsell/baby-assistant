@@ -1,0 +1,47 @@
+default_install_hook_types:
+  - pre-commit
+  - commit-msg
+
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.12.8
+    hooks:
+      - id: ruff
+        name: "🚨 ruff · Lint Python code"
+        args: [--fix]
+      - id: ruff-format
+        name: "📝 ruff · Format Python code"
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.17.1
+    hooks:
+      - id: mypy
+        name: "🔍 mypy · Type check Python code"
+        additional_dependencies: []
+        args: [--config-file, pyproject.toml]
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.1.0
+    hooks:
+      - id: commitizen
+        name: "📋 commitizen · Validate commit message"
+        stages: [commit-msg]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        name: "✂️  pre-commit · Trim trailing whitespace"
+      - id: end-of-file-fixer
+        name: "📄 pre-commit · Fix end of files"
+      - id: check-yaml
+        name: "🔧 pre-commit · Check YAML syntax"
+      - id: check-added-large-files
+        name: "📦 pre-commit · Check for large files"
+        args: [--maxkb=1000]
+      - id: check-merge-conflict
+        name: "⚔️  pre-commit · Check for merge conflicts"
+      - id: check-toml
+        name: "🔧 pre-commit · Check TOML syntax"
+      - id: check-json
+        name: "🔧 pre-commit · Check JSON syntax"
