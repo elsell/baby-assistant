@@ -1,0 +1,7 @@
+[project]
+name = "baby-assistant"
+version = "0.1.0"
+description = "Use Home Assistant to Tracking Daily Baby Tasks"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
